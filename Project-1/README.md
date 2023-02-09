@@ -123,6 +123,25 @@ Contingent
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+(a)
+T-box:
+Concepts: parent_of, male
+Roles: parent_of
+
+A-box:
+p ∈ parent_of
+parent_of(p, x)
+parent_of(p, y)
+male(x)
+
+(d)
+TBox:
+
+Concept definition: "onlyChild" is equivalent to "∃p (p ∈ parent_of ∧ ∀p' (p' ∈ parent_of → (p' ≠ p ∧ ¬parent_of(p', x))))"
+ABox:
+
+Concept assertion: "x" is an instance of "onlyChild".
+
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
