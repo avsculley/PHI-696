@@ -15,14 +15,25 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   ```
   (a) (¬A→B)∨((A∧¬C)→B) 
   
-  
-  
+ 
   
   ![image](https://user-images.githubusercontent.com/80927159/217919322-bc74663f-d623-4059-97c9-cd2aefe7ddae.png)
+  
+  Tatology
 
   (b) (A→B)∧(A→¬B)
+  
+  ![image](https://user-images.githubusercontent.com/80927159/217920278-676f99bb-fcf7-4b4f-8dee-5e83c0902925.png)
+Contingent
   (c) (A→(B∨C))∨(C→¬A) 
+  
+  ![image](https://user-images.githubusercontent.com/80927159/217920327-abfb4f8d-fa66-4e4d-83ac-ed869a875f1c.png)
+Tautology
+  
   (d) ((A→B)∧C)∨(A∧D) 
+  
+  ![image](https://user-images.githubusercontent.com/80927159/217920381-e9b4e3a0-5d6e-4f5a-9b38-d52e7eac1564.png)
+Contingent
   ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
