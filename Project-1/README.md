@@ -59,10 +59,36 @@ Contingent
   
   ```
   (a)  B(x,y) that says that x is a brother of y  
+  
+  (¬F(x)) ∧ (P(p,x) ∧ P(p,y))
+
+  
   (b)  A(x,y) that says that x is an aunt of y  
+  
+  F(x) ∧ (P(x,z) ∧ P(z,y))
+
+  
   (c)  C(x,y) that says that x and y are cousins   
+  
+  (P(a,x) ∧ P(b,x)) ∧ (P(c,y) ∧ P(d,y)) ∧ (P(a,c) ∨ P(a,d) ∨ P(b,c) ∨ P(b,d))
+
+  
   (d)  O(x) that says that x is an only child  
+  
+  Can't be done without saying that x is = to all their parents' children. However, using = :
+  
+  (∀y)(P(p,x) ⇒ (P(p,y) ⇒ (y = x)))
+
+  
   (e)  T(x) that says that x has exactly two brothers 
+  
+  
+  Can't be done without a way to say that x's number of brothers = 2. However, using =:
+  
+  (∃y1)(∃y2)((y1 ≠ y2) ∧ (¬F(y1)) ∧ (¬F(y2)) ∧ (P(p,x) ∧ P(p,y1) ∧ P(p,y2)) ∧ (∀z)((z ≠ y1) ∧ (z ≠ y2) ⇒ ¬(P(p,z))))
+
+  
+  
   ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
