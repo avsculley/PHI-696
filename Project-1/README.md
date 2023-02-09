@@ -14,6 +14,12 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```
   (a) (¬A→B)∨((A∧¬C)→B) 
+  
+  
+  
+  
+  ![image](https://user-images.githubusercontent.com/80927159/217919322-bc74663f-d623-4059-97c9-cd2aefe7ddae.png)
+
   (b) (A→B)∧(A→¬B)
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
