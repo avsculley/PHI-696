@@ -99,12 +99,25 @@ Contingent
   ```
   (a)  B that says that x is a brother of y
   
-  ∃p ∈ parent_of, (p.range = y ∧ ∀r ∈ parent_of, (r.domain = p.domain ∧ r.range = x) → male(x))
+  ∃p (p ∈ parent_of ∧ parent_of(p, x) ∧ parent_of(p, y) ∧ male(x))
   
   (b)  A that says that x is an aunt of y
+  
+  ∃p (p ∈ parent_of ∧ ∃s (s ∈ parent_of ∧ parent_of(x, s) ∧ parent_of(s, p) ∧ parent_of(p, y)) ∧ female(x))
+  
+  
   (c)  C that says that x and y are cousins
+  
+  Can't be done without a way to represnet 'grandparent_of' relation
+  
   (d)  O that says that x is an only child  
+  
+  ∃p (p ∈ parent_of ∧ ∀p' (p' ∈ parent_of → (p' ≠ p ∧ ¬parent_of(p', x))))
+  
   (e)  T that says that x has exactly two brothers 
+  
+  ∃p (p ∈ parent_of ∧ ∀m (m ∈ male ∧ parent_of(p, m) ⇒ (m ≠ x ⇔ ∃m' (m' ≠ m ∧ m' ≠ x ∧ parent_of(p, m')))))
+  
   ```
 
 
