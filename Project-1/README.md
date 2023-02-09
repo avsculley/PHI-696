@@ -12,7 +12,11 @@ Tip #4: The work we do is challenging; that should be assumed. You are smart eno
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
+
   ```
+  
+  Truth table images generated using https://web.stanford.edu/class/cs103/tools/truth-table-tool/
+  
   (a) (¬A→B)∨((A∧¬C)→B) 
   
  
