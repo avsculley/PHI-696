@@ -23,7 +23,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
   ![image](https://user-images.githubusercontent.com/80927159/217919322-bc74663f-d623-4059-97c9-cd2aefe7ddae.png)
   
-  Tatology
+  Tautology
 
   (b) (A→B)∧(A→¬B)
   
