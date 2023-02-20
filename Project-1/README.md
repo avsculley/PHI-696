@@ -156,12 +156,19 @@ Concept assertion: "x" is an instance of "onlyChild".
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```
+  
   (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  <img width="416" alt="Screenshot 2023-02-19 at 9 49 45 PM" src="https://user-images.githubusercontent.com/80927159/219998405-76db16b6-eeea-4765-b387-8fff4f42a630.png">
+
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+  <img width="413" alt="Screenshot 2023-02-19 at 9 51 46 PM" src="https://user-images.githubusercontent.com/80927159/219998503-fc8fc6e3-d621-4702-80c4-4d4e262345ca.png">
+
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  
+  <img width="436" alt="Screenshot 2023-02-19 at 9 52 14 PM" src="https://user-images.githubusercontent.com/80927159/219998569-d3269605-ad15-4267-8bd8-51185ed12740.png">
+
   (d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
-```
+<img width="415" alt="Screenshot 2023-02-19 at 9 52 48 PM" src="https://user-images.githubusercontent.com/80927159/219998660-ca1773c7-e396-493f-8de6-28ab0a92dcd3.png">
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
