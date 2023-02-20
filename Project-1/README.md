@@ -13,7 +13,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
 
-  ```
+ 
   
   Truth table images generated using https://web.stanford.edu/class/cs103/tools/truth-table-tool/
   
@@ -21,24 +21,24 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
  
   
-  ![image](https://user-images.githubusercontent.com/80927159/217919322-bc74663f-d623-4059-97c9-cd2aefe7ddae.png)
+  [image](https://user-images.githubusercontent.com/80927159/217919322-bc74663f-d623-4059-97c9-cd2aefe7ddae.png)
   
   Tautology
 
   (b) (A→B)∧(A→¬B)
   
-  ![image](https://user-images.githubusercontent.com/80927159/217920278-676f99bb-fcf7-4b4f-8dee-5e83c0902925.png)
+  [image](https://user-images.githubusercontent.com/80927159/217920278-676f99bb-fcf7-4b4f-8dee-5e83c0902925.png)
 Contingent
   (c) (A→(B∨C))∨(C→¬A) 
   
-  ![image](https://user-images.githubusercontent.com/80927159/217920327-abfb4f8d-fa66-4e4d-83ac-ed869a875f1c.png)
+  [image](https://user-images.githubusercontent.com/80927159/217920327-abfb4f8d-fa66-4e4d-83ac-ed869a875f1c.png)
 Tautology
   
   (d) ((A→B)∧C)∨(A∧D) 
   
-  ![image](https://user-images.githubusercontent.com/80927159/217920381-e9b4e3a0-5d6e-4f5a-9b38-d52e7eac1564.png)
+  [image](https://user-images.githubusercontent.com/80927159/217920381-e9b4e3a0-5d6e-4f5a-9b38-d52e7eac1564.png)
 Contingent
-  ```
+  
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```
@@ -145,8 +145,41 @@ Concept assertion: "x" is an instance of "onlyChild".
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
+  
+  ∃x∀y means "there exists an x such that for all y, some property is true." This expression asserts that there is at least one object x that satisfies the given property for all y. In other words, there is some x that is universally applicable to all y.
+
+On the other hand, ∀x∃y means "for all x, there exists a y such that some property is true." This expression asserts that for every object x, there is at least one y that satisfies the given property. In other words, for every x, there exists at least one y that can be paired with x to make the property true.
+
+The key difference between these two expressions lies in the order of the quantifiers. In the first expression, we first existentially quantify over x and then universally quantify over y. In the second expression, we first universally quantify over x and then existentially quantify over y. This order can make a difference in some contexts and can affect the truth of the statement being made.
+  
   (b) ∃x∀y∃z and ∀x∃y∀z 
+  
+  Both of these are logical expressions involving quantifiers.
+
+∃x∀y∃z means "there exists an x such that for all y there exists a z such that some property is true." This expression asserts that there is at least one object x that satisfies the given property for all y, and for each y there exists at least one z that satisfies the property. In other words, there is some x that can be paired with any y and some z to make the property true.
+
+On the other hand, ∀x∃y∀z means "for all x, there exists a y such that for all z some property is true." This expression asserts that for every object x, there is at least one y that satisfies the given property for all z. In other words, for every x, there exists at least one y that can be paired with any z to make the property true.
+
+The key difference between these two expressions lies in the order of the quantifiers and the scope of each quantifier. In the first expression, we first existentially quantify over x and then universally quantify over y and then existentially quantify over z. In the second expression, we first universally quantify over x and then existentially quantify over y and then universally quantify over z.
+
+In ∃x∀y∃z, we have the most flexibility to choose a value for x first and then have some freedom to choose values for y and z that satisfy the property. In ∀x∃y∀z, we have to satisfy the property for all z for any value of x that we choose, and we have the freedom to choose a y that satisfies the property for that x.
+  
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  
+  
+ ∀x∃y∀z∃w means "for all x, there exists a y such that for all z, there exists a w such that some property is true." This expression asserts that for every object x, there is at least one y that satisfies the given property for all z, and for each z there exists at least one w that satisfies the property. In other words, for any value of x we choose, there is a y that works for all z, and for any value of z we choose, there is a w that works with that y to satisfy the property.
+
+On the other hand, ∃x∀y∃z∀w means "there exists an x such that for all y, there exists a z such that for all w, some property is true." This expression asserts that there is at least one object x that satisfies the given property for all y, and for each y there exists at least one z that satisfies the property for all w. In other words, there is some x that can be paired with any y, and for any y we choose, there is a z that works for all w.
+
+The key difference between these two expressions lies in the order of the quantifiers and the scope of each quantifier. In the first expression, we first universally quantify over x and then existentially quantify over y and z and then existentially quantify over w. In the second expression, we first existentially quantify over x and then universally quantify over y and then existentially quantify over z and then universally quantify over w.
+
+In ∀x∃y∀z∃w, we have to satisfy the property for all z for any value of x that we choose, and for any value of z we choose, there is a w that satisfies the property. In ∃x∀y∃z∀w, there is some x that can be paired with any y, and for any y we choose, there is a z that works for all w.
+
+
+
+
+
+  
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
