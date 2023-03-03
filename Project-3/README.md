@@ -10,11 +10,11 @@ For any question involving the use of Protege, please be sure to import:
 
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
-  (a)  Reflexive 
-  (b)  Transitive 
+  (a)  Reflexive: simultaneous_with
+  (b)  Transitive : occurs_in
   (c)  Symmetric: 'reciprocal_of'
-  (d)  Functional 
-  (e)  Symmetric and Reflexive
+  (d)  Functional : 'differnet in magnitude relative to'
+  (e)  Symmetric and Reflexive : correlated_with
 ```
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
@@ -22,14 +22,14 @@ For any question involving the use of Protege, please be sure to import:
   (a)  Irreflexive
   (b)  Transitive 
   (c)  Asymmetric
-  (d)  Functional 
+  (d)  Functional : phenotype_of
   (e)  Inverse Functional
 ```
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
-  (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  (b) Every liver has some cell as part at all times it exists.
+  (a) Sally has an arm Tuesday but does not have an arm Wednesday. Tuesday-Sally has_part at least one arm; Wednesday-Sally has_part
+  (b) Every liver has some cell as part at all times it exists. Liver has_part some cell
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant are married at each point in a three year span. 
 ```
@@ -37,7 +37,7 @@ For any question involving the use of Protege, please be sure to import:
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  (b) Every liver has some cell as part at all times it exists.
+  (b) Every liver has some cell as part at all times it exists. 
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
 ```
