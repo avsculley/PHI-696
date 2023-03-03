@@ -10,9 +10,9 @@ For any question involving the use of Protege, please be sure to import:
 
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
-  (a)  Reflexive
+  (a)  Reflexive 
   (b)  Transitive 
-  (c)  Symmetric
+  (c)  Symmetric: 'reciprocal_of'
   (d)  Functional 
   (e)  Symmetric and Reflexive
 ```
@@ -47,14 +47,14 @@ For any question involving the use of Protege, please be sure to import:
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
-  (a) Bach's Well-Tempered Clavier
-  (b) Chair of the UB Philosophy Department
-  (c) SARS-CoV-2
-  (d) Mexico City
-  (e) The trunk of a minivan
-  (f) Occupation
-  (g) Ocean
-  (h) Lake
+  (a) Bach's Well-Tempered Clavier: is an object
+  (b) Chair of the UB Philosophy Department: is an 'object'
+  (c) SARS-CoV-2: 'object'
+  (d) Mexico City: is an instance of a city, which is a subclass of 'object aggregate'
+  (e) The trunk of a minivan: subclass of site
+  (f) Occupation: process in which some occupation role is realized
+  (g) Ocean: fiat object part bound by a 2D fiat boundary
+  (h) Lake: fiat object part bound by a 
 ```
 
 7. True or False; explain your answers:
