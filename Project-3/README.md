@@ -19,11 +19,11 @@ For any question involving the use of Protege, please be sure to import:
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
 ```
-  (a)  Irreflexive
-  (b)  Transitive 
-  (c)  Asymmetric
+  (a)  Irreflexive : has_role_in_model
+  (b)  Transitive : alligned_with
+  (c)  Asymmetric: 
   (d)  Functional : phenotype_of
-  (e)  Inverse Functional
+  (e)  Inverse Functional : has_characteristic
 ```
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
@@ -47,27 +47,27 @@ For any question involving the use of Protege, please be sure to import:
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
-  (a) Bach's Well-Tempered Clavier: is an object
+  (a) Bach's Well-Tempered Clavier: GDC
   (b) Chair of the UB Philosophy Department: is an 'object'
   (c) SARS-CoV-2: 'object'
   (d) Mexico City: is an instance of a city, which is a subclass of 'object aggregate'
   (e) The trunk of a minivan: subclass of site
   (f) Occupation: process in which some occupation role is realized
-  (g) Ocean: fiat object part bound by a 2D fiat boundary
+  (g) Ocean: environmental system
   (h) Lake: fiat object part bound by a 
 ```
 
 7. True or False; explain your answers:
 ```
-  (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
+  (a) An instance of Material Entity can have an instance of Immaterial Entity as part. False
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
-  (c) An organization may have another organization as part.
-  (d) An organization may have no members as part. 
-  (e) Any site is partially bounded by some instance of Material Entity.
-  (f) A book placed under the leg of a wobbly table has acquired a new function. 
-  (g) A glass vase cushioned with packing material for all time, has the disposition to break. 
-  (h) Spacetime is a class in BFO.
-  (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+  (c) An organization may have another organization as part. True: an organization of organizations
+  (d) An organization may have no members as part. False
+  (e) Any site is partially bounded by some instance of Material Entity. 
+  (f) A book placed under the leg of a wobbly table has acquired a new function. False
+  (g) A glass vase cushioned with packing material for all time, has the disposition to break. True
+  (h) Spacetime is a class in BFO. False
+  (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. False becasue there can be subclasses of the subclasses of continuant fiat boundary.
 ```
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
