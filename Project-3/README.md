@@ -28,25 +28,65 @@ For any question involving the use of Protege, please be sure to import:
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
-  (a) Sally has an arm Tuesday but does not have an arm Wednesday. Tuesday-Sally has_part at least one arm; Wednesday-Sally has_part
-  (b) Every liver has some cell as part at all times it exists. Liver has_part some cell
+  (a) Sally has an arm Tuesday but does not have an arm Wednesday. “Sally has_part at least one arm on Tuesday precedes Sally has_part no arms on Wednesday”
+  (b) Every liver has some cell as part at all times it exists. Liver has_part_at_all_times some cell.
   (c) John was a child, then an adult, then a senior. 
+  
   (d) Goofus and Gallant are married at each point in a three year span. 
+  
+  “Three years span 1” is an instance_of one-dimensional temporal region.
+Notice that the original phrase doesn’t say anything about Goofus and Gallant being married to each other, and we won’t represent such a fact.
+T1 is an instance_of zero-dimensional temporal region.
+If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
+
+Goofus spouse_of Gallant at t1
+
+  
 ```
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  
+   ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+  T: Tuesday
+  H: has
+  A: arm
+  W: Wednesday
+  s: Sally
+
   (b) Every liver has some cell as part at all times it exists. 
+    ∀x∃y(Lx→Cy∧Pyx)
+  L: liver
+  C: cell
+  P: part of at all times
+
   (c) John was a child, then an adult, then a senior. 
+  j = John
+E (x, y) = being earlier than
+C (x, t) = being a child at t
+A (x, t) = being an adult at t
+S (x, t) = being a senior at t
+∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3))
+
+  
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
+
+M(x, t) = being married at t
+Y(t) = belongs to 3 year span 1
+g1 = Goofus
+g2 = Gallant
+D(t) = t is a day
+∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+
+  
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
-```
+
   (a) Bach's Well-Tempered Clavier: GDC
   (b) Chair of the UB Philosophy Department: is an 'object'
   (c) SARS-CoV-2: 'object'
