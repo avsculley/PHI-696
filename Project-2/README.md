@@ -38,7 +38,27 @@ Tip #4: Work together as a team.
   (b) ∃r-.C and ∀r-.C
   (c) <=nr and <=nr.C
   (d) ∃r-.C and ∃r-.{a} 
+ 
 ```
+
+(a) ∃r.C and ∀r.C:
+
+∃r.C means "there exists some r relationship that has the property C". For example, there exists a "parent" relationship such that the person has the property of being a "mother".
+∀r.C means "all r relationships have the property C". For example, all "parent" relationships have the property of being "biological".
+(b) ∃r-.C and ∀r-.C:
+
+∃r-.C means "there exists some r relationship that doesn't have the property C". For example, there exists a "child" relationship such that the person doesn't have the property of being "adopted".
+∀r-.C means "all r relationships don't have the property C". For example, all "child" relationships don't have the property of being "related by marriage".
+(c) <=nr and <=nr.C:
+
+<=nr means "the set of individuals that are related by the relationship r is finite". For example, the set of "siblings" is finite - you can only have a certain number of siblings.
+<=nr.C means "the set of individuals that are related by the relationship r and have the property C is finite". For example, the set of "sisters" is finite - you can only have a certain number of sisters.
+
+(d) ∃r-.C and ∃r-.{a}:
+
+∃r-.C means "there exists some r relationship that doesn't have the property C". For example, there exists a "child" relationship such that the person doesn't have the property of being "adopted".
+∃r-.{a} means "there exists some r relationship that doesn't have the individual a as a member of the set". For example, there exists a "classmate" relationship such that the person doesn't have a particular classmate as a member of their set of classmates.
+
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
