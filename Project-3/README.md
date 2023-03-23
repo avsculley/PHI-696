@@ -114,4 +114,13 @@ D(t) = t is a day
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
+```
+Pellet is like a really smart robot that helps computers think and learn better.
+
+When you have a lot of information that you want the computer to process and understand, Pellet can help you do it in small pieces instead of all at once. This is called incremental reasoning.
+
+Pellet is good at this because it can remember things it learned before, so it doesn't have to start from scratch every time. It's like when you learn your ABCs, you don't have to start from the beginning every time you want to say the alphabet. You already know the letters and can build on that knowledge.
+
+So, if you have a lot of information you want the computer to learn and understand, using Pellet for incremental reasoning can help it do it more efficiently and accurately.
+```
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
