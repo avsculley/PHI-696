@@ -45,10 +45,12 @@ Tip #4: Work together as a team.
 
 ∃r.C means "there exists some r relationship that has the property C". For example, there exists a "parent" relationship such that the person has the property of being a "mother".
 ∀r.C means "all r relationships have the property C". For example, all "parent" relationships have the property of being "biological".
+
 (b) ∃r-.C and ∀r-.C:
 
 ∃r-.C means "there exists some r relationship that doesn't have the property C". For example, there exists a "child" relationship such that the person doesn't have the property of being "adopted".
 ∀r-.C means "all r relationships don't have the property C". For example, all "child" relationships don't have the property of being "related by marriage".
+
 (c) <=nr and <=nr.C:
 
 <=nr means "the set of individuals that are related by the relationship r is finite". For example, the set of "siblings" is finite - you can only have a certain number of siblings.
