@@ -13,6 +13,11 @@ For any question involving the use of Protege, please be sure to import:
   (a)  Reflexive: 
   ```
   simultaneous_with
+  
+  
+
+
+  
   An object property R is reflexive just in case, for all x, xRx. When R = 'simultanious_with', xRx is true for all x. That is, everything is simultanious_with itself. In other words, for all x, x occurs at the same period of time as x. For example, the final of the 2020 world cup occurred at the same period of time as the final of the 2020 world cup.
   ``` 
   (b)  Transitive : 
@@ -25,10 +30,16 @@ For any question involving the use of Protege, please be sure to import:
   ```
   'reciprocal_of'
   
+  a relation R is symmetric if and only if:
+
+(a, b) ∈ R implies (b, a) ∈ R for all a, b ∈ A.
+  
   An object property R is symmetric just in case for all x, for all y, xRy <-> yRx. When R = 'reciprocal_of', xRy <-> yRx is true for all x, for all y. That is, x is_reciprocal_of y iff y is reciprocal_of x. For example, 'spermatocyte lacks asters' iff 'asters absent from spermatocyte'.
   ```
   
   (d)  Functional : 'differnet in magnitude relative to'
+  ```
+  f(x) = y, where f is the name of the function, x is an element from the domain, and y is the corresponding element in the range. The function maps each input x to a unique output y.
   (e)  Symmetric and Reflexive : correlated_with
 ```
 
