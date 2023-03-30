@@ -10,7 +10,12 @@ For any question involving the use of Protege, please be sure to import:
 
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
-  (a)  Reflexive: simultaneous_with
+  (a)  Reflexive: 
+  ```
+  simultaneous_with
+  An object property is reflexive just in case, for all x, xRx. When R = 'simultanious_with', xRx is true for all x. That is, everything is simultanious_with itself. In other words, for all x, x occurs at the same period of time as x. For example, the final of the 2020 world cup occurred at the same period of time as the final of the 2020 world cup.
+  ```
+  
   (b)  Transitive : occurs_in
   (c)  Symmetric: 'reciprocal_of'
   (d)  Functional : 'differnet in magnitude relative to'
