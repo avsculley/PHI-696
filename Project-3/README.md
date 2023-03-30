@@ -13,10 +13,15 @@ For any question involving the use of Protege, please be sure to import:
   (a)  Reflexive: 
   ```
   simultaneous_with
-  An object property is reflexive just in case, for all x, xRx. When R = 'simultanious_with', xRx is true for all x. That is, everything is simultanious_with itself. In other words, for all x, x occurs at the same period of time as x. For example, the final of the 2020 world cup occurred at the same period of time as the final of the 2020 world cup.
+  An object property R is reflexive just in case, for all x, xRx. When R = 'simultanious_with', xRx is true for all x. That is, everything is simultanious_with itself. In other words, for all x, x occurs at the same period of time as x. For example, the final of the 2020 world cup occurred at the same period of time as the final of the 2020 world cup.
   ```
   
-  (b)  Transitive : occurs_in
+  (b)  Transitive : 
+  ```
+  is_causally_influenced_by
+  
+  An object property R is transitive just in case, for all x, for all y, for all z, xRy & yRz -> xRz. When R = 'causally influenced by', xRy & yRz -> xRz is true for all x, for all y, for all z. That is, if x is_causally_influenced_by y and y is_causally_influenced_by z, then x is_causally_influenced_by z. For example, if this act of violence is causally influenced by that act of violence, and that act of violence is causally influcenced by this publication of a cartoon, then this act of violence was causally influenced by this publication of a cartoon.
+  ```
   (c)  Symmetric: 'reciprocal_of'
   (d)  Functional : 'differnet in magnitude relative to'
   (e)  Symmetric and Reflexive : correlated_with
