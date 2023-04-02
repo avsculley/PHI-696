@@ -161,10 +161,10 @@ ex:christopherNolan ex:name "Christopher Nolan" .
 ex:lanaWachowski rdf:type ex:Director .
 ex:lanaWachowski ex:name "Lana Wachowski" .
 
-ex:lillyWach
 ```
 Answer #2
-```PREFIX ex: <http://example.org/>
+```
+PREFIX ex: <http://example.org/>
 
 CONSTRUCT {
   ?movie ex:title ?title .
@@ -191,6 +191,284 @@ WHERE {
 ```
 
 
+Prompt #3
 
+```
+Given an RDF dataset of courses, students, and their enrollment details, construct a new dataset containing students who are enrolled in at least two courses, the courses they are enrolled in, and the students' average grade across all their courses.
+```
 
+Dataset #3
+
+```
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:calculus rdf:type ex:Course .
+ex:calculus ex:name "Calculus" .
+
+ex:chemistry rdf:type ex:Course .
+ex:chemistry ex:name "Chemistry" .
+
+ex:physics rdf:type ex:Course .
+ex:physics ex:name "Physics" .
+
+ex:alice rdf:type ex:Student .
+ex:alice ex:name "Alice" .
+ex:alice ex:enrolledIn ex:calculus .
+ex:alice ex:enrolledIn ex:chemistry .
+ex:alice ex:grade 90 .
+
+ex:bob rdf:type ex:Student .
+ex:bob ex:name "Bob" .
+ex:bob ex:enrolledIn ex:calculus .
+ex:bob ex:grade 85 .
+
+ex:carol rdf:type ex:Student .
+ex:carol ex:name "Carol" .
+ex:carol ex:enrolledIn ex:calculus .
+ex:carol ex:enrolledIn ex:physics .
+ex:carol ex:grade 95 .
+```
+
+Answer #3
+```
+PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?student ex:name ?studentName .
+  ?student ex:enrolledIn ?course .
+  ?student ex:averageGrade ?avgGrade .
+}
+WHERE {
+  {
+    SELECT ?student (COUNT(?course) AS ?courseCount) (AVG(?grade) AS ?avgGrade)
+    WHERE {
+      ?student ex:enrolledIn ?course .
+      ?student ex:grade ?grade .
+      ?student ex:name ?studentName .
+    }
+    GROUP BY ?student
+    HAVING (COUNT(?course) >= 2)
+  }
+}
+```
+ Prompt #4
+ 
+ ```
+ Given an RDF dataset of football players, their teams, positions, and goals scored, construct a new dataset containing information about the top 3 goal scorers in the 'Forward' position, along with their team names and total goals scored.
+ ```
+ 
+ Dataset #4
+ 
+ ```
+ @prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:lionelMessi rdf:type ex:Player .
+ex:lionelMessi ex:name "Lionel Messi" .
+ex:lionelMessi ex:position "Forward" .
+ex:lionelMessi ex:team ex:psg .
+ex:lionelMessi ex:goals 25 .
+
+ex:cristianoRonaldo rdf:type ex:Player .
+ex:cristianoRonaldo ex:name "Cristiano Ronaldo" .
+ex:cristianoRonaldo ex:position "Forward" .
+ex:cristianoRonaldo ex:team ex:manchesterUnited .
+ex:cristianoRonaldo ex:goals 20 .
+
+ex:robertLewandowski rdf:type ex:Player .
+ex:robertLewandowski ex:name "Robert Lewandowski" .
+ex:robertLewandowski ex:position "Forward" .
+ex:robertLewandowski ex:team ex:bayernMunich .
+ex:robertLewandowski ex:goals 30 .
+
+ex:kevinDeBruyne rdf:type ex:Player .
+ex:kevinDeBruyne ex:name "Kevin De Bruyne" .
+ex:kevinDeBruyne ex:position "Midfielder" .
+ex:kevinDeBruyne ex:team ex:mancity .
+ex:kevinDeBruyne ex:goals 10 .
+
+ex:psg rdf:type ex:Team .
+ex:psg ex:name "Paris Saint-Germain" .
+
+ex:manchesterUnited rdf:type ex:Team .
+ex:manchesterUnited ex:name "Manchester United" .
+
+ex:bayernMunich rdf:type ex:Team .
+ex:bayernMunich ex:name "Bayern Munich" .
+
+ex:mancity rdf:type ex:Team .
+ex:mancity ex:name "Manchester City" .
+```
+Answer #4
+
+```
+PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?player ex:name ?playerName .
+  ?player ex:team ?team .
+  ?player ex:totalGoals ?totalGoals .
+}
+WHERE {
+  ?player ex:position "Forward" .
+  ?player ex:name ?playerName .
+  ?player ex:team ?team .
+  ?player ex:goals ?totalGoals .
+  
+  {
+    SELECT ?player (SUM(?goals) as ?totalGoals)
+    WHERE {
+      ?player ex:position "Forward" ;
+              ex:goals ?goals .
+    }
+    GROUP BY ?player
+    ORDER BY DESC(?totalGoals)
+    LIMIT 3
+  }
+}
+```
+
+Prompt #5
+
+```
+Given an RDF dataset of researchers, their institutions, research areas, and publication counts, construct a new dataset containing information about the top researcher from each research area based on publication count, including their names, research areas, institutions, and publication counts.
+```
+Dataset #5
+
+```
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:yoshuaBengio rdf:type ex:Researcher .
+ex:yoshuaBengio ex:name "Yoshua Bengio" .
+ex:yoshuaBengio ex:researchArea "Artificial Intelligence" .
+ex:yoshuaBengio ex:institution ex:mila .
+ex:yoshuaBengio ex:publicationCount 500 .
+
+ex:geoffreyHinton rdf:type ex:Researcher .
+ex:geoffreyHinton ex:name "Geoffrey Hinton" .
+ex:geoffreyHinton ex:researchArea "Artificial Intelligence" .
+ex:geoffreyHinton ex:institution ex:uoft .
+ex:geoffreyHinton ex:publicationCount 300 .
+
+ex:johnPreskill rdf:type ex:Researcher .
+ex:johnPreskill ex:name "John Preskill" .
+ex:johnPreskill ex:researchArea "Quantum Computing" .
+ex:johnPreskill ex:institution ex:caltech .
+ex:johnPreskill ex:publicationCount 250 .
+
+ex:alainAspect rdf:type ex:Researcher .
+ex:alainAspect ex:name "Alain Aspect" .
+ex:alainAspect ex:researchArea "Quantum Physics" .
+ex:alainAspect ex:institution ex:institutOptiqueGraduateSchool .
+ex:alainAspect ex:publicationCount 200 .
+
+ex:barrySmith rdf:type ex:Researcher .
+ex:barrySmith ex:name "Barry Smith" .
+ex:barrySmith ex:researchArea "Ontology" .
+ex:barrySmith ex:institution ex:universityAtBuffalo .
+ex:barrySmith ex:publicationCount 350 .
+
+ex:mila rdf:type ex:Institution .
+ex:mila ex:name "Mila - Quebec Artificial Intelligence Institute" .
+
+ex:uoft rdf:type ex:Institution .
+ex:uoft ex:name "University of Toronto" .
+
+ex:caltech rdf:type ex:Institution .
+ex:caltech ex:name "California Institute of Technology" .
+
+ex:institutOptiqueGraduateSchool rdf:type ex:Institution .
+ex:institutOptiqueGraduateSchool ex:name "Institut d'Optique Graduate School" .
+
+ex:universityAtBuffalo rdf:type ex:Institution .
+ex:universityAtBuffalo ex:name "University at Buffalo" .
+```
+Answer #5
+```
+PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?researcher ex:name ?researcherName .
+  ?researcher ex:researchArea ?researchArea .
+  ?researcher ex:institution ?institution .
+  ?researcher ex:publicationCount ?publicationCount .
+}
+WHERE {
+  {
+    SELECT ?researchArea (MAX(?pubCount) as ?maxPubCount)
+    WHERE {
+      ?researcher ex:researchArea ?researchArea ;
+                  ex:publicationCount ?pubCount .
+    }
+    GROUP BY ?researchArea
+  }
+  ?researcher ex:name ?researcherName .
+  ?researcher ex:researchArea ?researchArea .
+  ?researcher ex:institution ?institution .
+  ?researcher ex:publicationCount ?publicationCount .
+  FILTER (?publicationCount = ?maxPubCount)
+}
+```
+Prompt #6
+
+```Given an RDF dataset of cities, their countries, populations, and average annual temperatures, construct a new dataset containing information about the cities with populations greater than 1 million and average annual temperatures below 10°C (50°F), including their names, countries, populations, and average annual temperatures.```
+
+Dataset #6
+
+```
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:moscow rdf:type ex:City .
+ex:moscow ex:name "Moscow" .
+ex:moscow ex:country "Russia" .
+ex:moscow ex:population 12500000 .
+ex:moscow ex:averageAnnualTemperature 5.8 .
+
+ex:newYork rdf:type ex:City .
+ex:newYork ex:name "New York" .
+ex:newYork ex:country "USA" .
+ex:newYork ex:population 8400000 .
+ex:newYork ex:averageAnnualTemperature 12.7 .
+
+ex:london rdf:type ex:City .
+ex:london ex:name "London" .
+ex:london ex:country "UK" .
+ex:london ex:population 8900000 .
+ex:london ex:averageAnnualTemperature 11.6 .
+
+ex:toronto rdf:type ex:City .
+ex:toronto ex:name "Toronto" .
+ex:toronto ex:country "Canada" .
+ex:toronto ex:population 2800000 .
+ex:toronto ex:averageAnnualTemperature 9.2 .
+
+ex:buffalo rdf:type ex:City .
+ex:buffalo ex:name "Buffalo" .
+ex:buffalo ex:country "USA" .
+ex:buffalo ex:population 255000 .
+ex:buffalo ex:averageAnnualTemperature 9.3 .
+```
+
+Answer #6
+
+```
+PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?city ex:name ?cityName .
+  ?city ex:country ?country .
+  ?city ex:population ?population .
+  ?city ex:averageAnnualTemperature ?avgTemp .
+}
+WHERE {
+  ?city ex:name ?cityName ;
+        ex:country ?country ;
+        ex:population ?population ;
+        ex:averageAnnualTemperature ?avgTemp .
+  FILTER (?population > 1000000 && ?avgTemp < 10)
+}
+```
 
