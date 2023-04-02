@@ -49,7 +49,7 @@ There is one other option for those desiring a different sort of challenge. If y
 
 
 
-The following Kata 2 prompt-answer pairs also have rdf datasets, which contain real data. The data may be inaccurate or out-of-date.
+The following Kata 5 prompt-answer pairs also have rdf datasets, which contain real data. The data may be inaccurate or out-of-date.
 
 Prompt #1
 
@@ -413,7 +413,9 @@ WHERE {
 ```
 Prompt #6
 
-```Given an RDF dataset of cities, their countries, populations, and average annual temperatures, construct a new dataset containing information about the cities with populations greater than 1 million and average annual temperatures below 10°C (50°F), including their names, countries, populations, and average annual temperatures.```
+```
+Given an RDF dataset of cities, their countries, populations, and average annual temperatures, construct a new dataset containing information about the cities with populations greater than 1 million and average annual temperatures below 10°C (50°F), including their names, countries, populations, and average annual temperatures.
+```
 
 Dataset #6
 
