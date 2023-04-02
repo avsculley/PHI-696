@@ -45,3 +45,152 @@ You're probably thinking, "why would I submit a level 8 kata if they're not wort
 It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
 
 There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
+
+
+
+
+The following Kata 2 prompt-answer pairs also have rdf datasets, which contain real data. The data may be inaccurate or out-of-date.
+
+Prompt #1
+
+```
+Given an RDF dataset of books, authors, and publishers, construct a new dataset with information about the authors who have written at least two books, and their respective publishers. Additionally, find the average rating of each author's books.
+```
+
+Dataset #1
+
+```
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:theMartian rdf:type ex:Book .
+ex:theMartian ex:title "The Martian" .
+ex:theMartian ex:author ex:andyWeir .
+ex:theMartian ex:publisher ex:crownPublishing .
+ex:theMartian ex:rating 4.5 .
+
+ex:artemis rdf:type ex:Book .
+ex:artemis ex:title "Artemis" .
+ex:artemis ex:author ex:andyWeir .
+ex:artemis ex:publisher ex:crownPublishing .
+ex:artemis ex:rating 3.7 .
+
+ex:toKillAMockingbird rdf:type ex:Book .
+ex:toKillAMockingbird ex:title "To Kill a Mockingbird" .
+ex:toKillAMockingbird ex:author ex:harperLee .
+ex:toKillAMockingbird ex:publisher ex:harperCollins .
+ex:toKillAMockingbird ex:rating 4.3 .
+
+ex:andyWeir rdf:type ex:Author .
+ex:andyWeir ex:name "Andy Weir" .
+
+ex:harperLee rdf:type ex:Author .
+ex:harperLee ex:name "Harper Lee" .
+
+ex:crownPublishing rdf:type ex:Publisher .
+ex:crownPublishing ex:name "Crown Publishing" .
+
+ex:harperCollins rdf:type ex:Publisher .
+ex:harperCollins ex:name "HarperCollins" .
+```
+
+
+Answer #1
+
+```
+PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?author ex:name ?authorName .
+  ?author ex:hasPublisher ?publisher .
+  ?author ex:averageRating ?avgRating .
+}
+WHERE {
+  {
+    SELECT ?author (COUNT(?book) AS ?bookCount) (AVG(?rating) AS ?avgRating)
+    WHERE {
+      ?book ex:author ?author .
+      ?book ex:publisher ?publisher .
+      ?book ex:rating ?rating .
+      ?author ex:name ?authorName .
+    }
+    GROUP BY ?author
+    HAVING (COUNT(?book) >= 2)
+  }
+}
+```
+
+Prompt #2
+
+```
+Given an RDF dataset of movies, directors, actors, and genres, construct a new dataset containing only movies of the 'Science Fiction' genre directed by directors who have directed at least three movies in this genre, including the movies' titles, release years, and directors' names.
+```
+Dataset #2
+```
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:interstellar rdf:type ex:Movie .
+ex:interstellar ex:title "Interstellar" .
+ex:interstellar ex:genre "Science Fiction" .
+ex:interstellar ex:releaseYear "2014" .
+ex:interstellar ex:director ex:christopherNolan .
+
+ex:inception rdf:type ex:Movie .
+ex:inception ex:title "Inception" .
+ex:inception ex:genre "Science Fiction" .
+ex:inception ex:releaseYear "2010" .
+ex:inception ex:director ex:christopherNolan .
+
+ex:thePrestige rdf:type ex:Movie .
+ex:thePrestige ex:title "The Prestige" .
+ex:thePrestige ex:genre "Mystery" .
+ex:thePrestige ex:releaseYear "2006" .
+ex:thePrestige ex:director ex:christopherNolan .
+
+ex:theMatrix rdf:type ex:Movie .
+ex:theMatrix ex:title "The Matrix" .
+ex:theMatrix ex:genre "Science Fiction" .
+ex:theMatrix ex:releaseYear "1999" .
+ex:theMatrix ex:director ex:lanaWachowski .
+ex:theMatrix ex:director ex:lillyWachowski .
+
+ex:christopherNolan rdf:type ex:Director .
+ex:christopherNolan ex:name "Christopher Nolan" .
+
+ex:lanaWachowski rdf:type ex:Director .
+ex:lanaWachowski ex:name "Lana Wachowski" .
+
+ex:lillyWach
+```
+Answer #2
+```PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?movie ex:title ?title .
+  ?movie ex:releaseYear ?releaseYear .
+  ?movie ex:director ?director .
+  ?director ex:name ?directorName .
+}
+WHERE {
+  ?movie ex:genre "Science Fiction" .
+  ?movie ex:title ?title .
+  ?movie ex:releaseYear ?releaseYear .
+  ?movie ex:director ?director .
+  ?director ex:name ?directorName .
+  {
+    SELECT ?director (COUNT(?movie) AS ?movieCount)
+    WHERE {
+      ?movie ex:genre "Science Fiction" .
+      ?movie ex:director ?director .
+    }
+    GROUP BY ?director
+    HAVING (COUNT(?movie) >= 3)
+  }
+}
+```
+
+
+
+
+
